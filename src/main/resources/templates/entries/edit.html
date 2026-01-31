@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit - Expense Tracker</title>
+<link rel="stylesheet" th:href="@{/css/mainstyle.css}">
+<link rel="stylesheet" th:href="@{/css/entriescreate.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Entry</h1>
+        
+        <form th:action="@{/entries/edit/{id}(id=${entry.id})}" th:object="${entry}" method="post">
+            <div class="form-card">
+                <div class=form-group>
+                    <label>Type</label>
+                    <select th:field="*{type}">
+                        <option th:each="type : ${types}" th:value="${type}" th:text="${type}"></option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Category</label>
+                    <select name="categoryId">
+                        <option th:each="category : ${categories}" 
+                                     th:value="${category.id}" 
+                                     th:text="${category.name}" 
+                                     th:selected="${entry.category != null and category.id == entry.category.id}">
+                        </option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input type="number" th:field="*{amount}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Note</label>
+                    <input type="text" th:field="*{note}">
+                </div>
+                
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" th:field="*{date}">
+                </div>
+                
+                    <div class="form-button">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <a th:href="@{/entries}" class="btn btn-secondary">Back</a>
+                    </div>
+                </form>
+            </div>
+    </div>
+</body>
+</html>

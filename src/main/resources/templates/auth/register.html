@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Register - Expense Tracker</title>
+<link rel="stylesheet" th:href="@{/css/mainstyle.css}">
+<link rel="stylesheet" th:href="@{/css/registerpage.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Registration</h1>
+        
+        <form th:action="@{/auth/register}" th:object="${user}" method="post">
+            <div class="form-group">
+                <label for="username">Username :</label>
+                <input type="text" id="username" th:field="*{username}" class="form-control" required>
+                <span class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" th:field="*{email}" class="form-control" required>
+                <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password :</label>
+                <input type="password" id="password" th:field="*{password}" class="form-control" required>
+                <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+        
+        <div class="mt-3">
+            <p>Already have an account?<a th:href="@{/auth/login}">Click Here</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+.login-button{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 5rem;
+    padding-bottom: 1rem;
+}
+
+.welcome{
+    position: relative;
+    text-align: center;
+    color: #7a6f64;
+}
+
+.welcome h3{
+    margin-top: 1rem;
+}
+
+.home{
+    position: relative;
+    text-align: center;
+    color: #7a6f64;
+}
+
+.home h3{
+    margin-top: 0;
+}
+
+.button-group{
+    margin: 1rem 0;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.button-group .btn{
+    margin: 0 0.5rem;
+}
+
+.summary{
+    position: relative;
+    text-align: center;
+    padding-top: 0.5rem;
+    color: #5a4e45;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.summary-grid{
+    position: relative;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.summary-card{
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.summary-card label{
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #5a4e45;
+  border-bottom: 2px solid #d8cfc6;
+}
+
+.summary-card .amount{
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2f2a25;
+}
+
+.summary-card.income{
+    background-color: #e6f0ea;
+    opacity: 0.8;
+}
+
+.summary-card.expense{
+    background-color: #f7e1e1;
+    opacity: 0.8;
+}
+
+.summary-card.net{
+    background-color: #f3e9db;
+    opacity: 0.8;
+}
+
+a{
+    color: #5a4e45;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #cc9966;
+    text-decoration: none;
+}

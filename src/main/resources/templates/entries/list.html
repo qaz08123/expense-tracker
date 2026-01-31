@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>List - Expense Tracker</title>
+<link rel="stylesheet" th:href="@{/css/mainstyle.css}">
+<link rel="stylesheet" th:href="@{/css/entrieslist.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Entries</h1>
+        
+        <div th:if="${successMessage}" class="alert alert-success">
+            <span th:text="${successMessage}"></span>
+        </div>
+
+        <div th:if="${errorMessage}" class="alert alert-danger">
+            <span th:text="${errorMessage}"></span>
+        </div>
+        
+        <div class="button-group">
+            <a th:href="@{/entries/create}" class="btn btn-primary">Create</a>
+            <a th:href="@{/}" class="btn btn-secondary">Back</a>
+        </div>
+        
+        <div class="summary">
+            <a th:href="@{/entries(month=${previousMonth})}" title="previous month">&lt;</a>
+            <span th:text="${currentMonth}"></span>
+            <a th:href="@{/entries(month=${nextMonth})}" title="next month">&gt;</a>
+        </div>
+        
+        <div class="filter">
+            <a class="chip" th:href="@{/entries(month=${currentMonth})}" th:classappend="${selectedType == null} ? 'active' : ' ' ">All</a>
+            <a class="chip" th:href="@{/entries(month=${currentMonth}, type = 'INCOME' )}" th:classappend="${selectedType == 'INCOME'} ? 'active income' : 'income' ">Income</a>
+            <a class="chip" th:href="@{/entries(month=${currentMonth}, type = 'EXPENSE' )}" th:classappend="${selectedType == 'EXPENSE'} ? 'active expense' : 'expense' ">Expense</a>
+        </div>
+        
+        <div class="entry-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="date">Date</th>
+                        <th class="type">Type</th>
+                        <th class="category">Category</th>
+                        <th class="amount">Amount</th>
+                        <th class="note">Note</th>
+                        <th class="actions">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="entry : ${entries}">
+                        <td th:text="${entry.date}"></td>
+                        <td th:text="${entry.type}" th:classappend="${entry.type.name() == 'INCOME' } ? 'type-income' : 'type-expense' "></td>
+                        <td th:text="${entry.category.name}"></td>
+                        <td th:text="${entry.amount}"></td>
+                        <td th:text="${entry.note}"></td>
+                        <td>
+                            <a th:href="@{/entries/edit/{id}(id=${entry.id})}" class="btn btn-primary">Edit</a>
+                            <form th:action="@{/entries/delete/{id}(id=${entry.id})}" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

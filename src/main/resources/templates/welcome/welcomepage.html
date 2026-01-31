@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>Expense Tracker</title>
+<link rel="stylesheet" th:href="@{/css/mainstyle.css}">
+<link rel="stylesheet" th:href="@{/css/welcomepage.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        
+        <div sec:authorize="!isAuthenticated()">
+            <div class="welcome">
+                <h3>Welcome to Expense Tracker!</h3>
+            </div>
+            <div class="login-button">
+                <a th:href="@{/auth/login}" class="btn btn-primary">Login</a>
+                <a th:href="@{/auth/register}" class="btn btn-primary">Register</a>
+            </div>
+        </div>
+        
+        <div sec:authorize="isAuthenticated()">
+            <div class="home">
+                <h3>Hello! Let’s keep an eye on your expenses.</h3>
+            </div>
+            <div class="button-group">
+                <!--<form  th:action="@{/entries}" method="get"  style="display: inline;">
+                    <button type="submit" class="btn btn-primary">All Entries</button>
+                </form>-->
+                <a th:href="@{/entries}" class="btn btn-primary">All Entries</a>
+                <!--<button><a th:href="@{/entries/create}" class="btn btn-primary">Create Entry</a></button>-->
+                <form th:action="@{/logout}" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-primary">Logout</button>
+                </form>
+            </div>
+            
+            <div class="summary">
+                <a th:href="@{/(month=${previousMonth})}" title="previous month">&lt;</a>
+                <span th:text="${currentMonth}"></span>
+                <a th:href="@{/(month=${nextMonth})}" title="next month">&gt;</a>
+            </div>
+            
+            <div class="summary-grid">
+                <div class="summary-card income">
+                    <label>Income</label>
+                    <p class="amount" th:text="${monthIncome}"></p>
+                </div>
+                
+                <div class="summary-card expense">
+                    <label>Expense</label>
+                    <p class="amount" th:text="${monthExpense}"></p>
+                </div>
+                
+                <div class="summary-card net">
+                    <label>Net</label>
+                    <p class="amount" th:text="${monthNet}"></p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

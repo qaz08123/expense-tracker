@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create category - Expense Tracker</title>
+<link rel="stylesheet" th:href="@{/css/mainstyle.css}">
+<link rel="stylesheet" th:href="@{/css/categorycreate.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Custom categories</h1>
+        
+        <div th:if="${successMessage}" class="alert alert-success">
+            <span th:text="${successMessage}"></span>
+        </div>
+        
+        <div th:if="${errorMessage}" class="alert alert-danger">
+            <span th:text="${errorMessage}"></span>
+        </div>
+        
+        <div class="grid-box">
+            <div class="add-block">
+                <h3>Add new category</h3>
+                <form th:action="@{/categories/create}" th:object="${category}" method="post">
+                    <div class="label-group">
+                        <label for="name">Name</label>
+                    </div>
+                    <input type="text" id="name" th:field="*{name}" placeholder="e.g., Food, Rent" required>
+                    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></div>
+                    
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                        <a th:href="@{/entries/create}" class="btn btn-secondary">Back</a>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="show-block">
+                <h3>Category List</h3>
+                <div th:if="${#lists.isEmpty(categories)}" class="text">
+                    No custom categories yet
+                </div>
+                
+                <div th:if="${!#lists.isEmpty(categories)}">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="category : ${categories}">
+                                <td th:text="${category.name}"></td>
+                                <td>
+                                    <form th:action="@{/categories/delete/{id}(id=${category.id})}" method="post" style="display: inline;">
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

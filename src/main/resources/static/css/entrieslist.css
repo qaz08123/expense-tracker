@@ -1,0 +1,174 @@
+.button-group{
+    margin: 1rem 0;
+    display: flex;
+}
+
+.button-group .btn{
+    margin: 0 0.5rem;
+    min-width: 110px;
+}
+
+.btn-secondary{
+    background-color: #eef2f6;
+    color: #2f5d7a;
+    border: 1px solid #c9d5e2;
+}
+
+.btn-secondary:hover{
+    background-color: #e3eaf2;
+    color: #2f5d7a;
+    text-decoration: none;
+}
+
+.summary{
+    position: relative;
+    text-align: center;
+    padding: 0.5rem;
+    color: #5a4e45;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.filter{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-bottom: 1rem;
+}
+
+.chip{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(74, 63, 53, 0.35);
+    border-radius: 999px;
+    padding: 0.25rem 0.9rem;
+    background-color: rgba(244, 238, 229, 0.88);
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+
+.chip:hover{
+    color: #5a4e45;
+    background-color: rgba(74, 63, 53, 0.10);
+}
+
+.chip.income{ 
+    border-color: rgba(47, 111, 78, 0.35);
+}
+
+.chip.income:hover{
+    background-color: rgba(47, 111, 78, 0.10);
+    color: rgba(47, 111, 78, 0.95);
+}
+ 
+.chip.expense{
+     border-color: rgba(138, 59, 47, 0.35);
+}
+
+.chip.expense:hover{
+    background-color: rgba(138, 59, 47, 0.10);
+    color: rgba(138, 59, 47, 0.95);
+}
+
+.chip.active{
+    background: rgba(74, 63, 53, 0.12);
+}
+
+.chip.active.income{
+    background: rgba(47, 111, 78, 0.12);
+    color: #2f6f4e;
+}
+
+.chip.active.expense{
+    background: rgba(138, 59, 47, 0.12);
+    color: #8a3b2f;
+}
+
+a{
+    color: #5a4e45;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #cc9966;
+    text-decoration: none;
+}
+
+table{
+    position: relative;
+    width: 100%;
+    table-layout: fixed;
+    border: 4px groove #c9b39b;
+    color: #4a3f35;
+}
+
+th, td{
+    border: 2px solid rgba(201,179,155, 0.9);
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+thead{
+    line-height: 1.2;
+}
+
+.date{
+    width: 100px;
+}
+
+.type{
+    width: 90px;
+}
+
+.category{
+    width: 120px;
+}
+
+.amount{
+    width: 90px;
+}
+
+.note{
+    width: auto;
+}
+
+.actions{
+    width: 130px;
+}
+
+.type-income, .type-expense{
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.type-income{
+  color: #2f6f4e;
+  background: rgba(47,111,78,0.12);
+}
+
+.type-expense{
+  color: #8a3b2f;
+  background: rgba(138,59,47,0.12);
+}
+
+.btn-danger{
+    padding: 0.5rem;
+    font-size: 1rem;
+    min-width: 60px;
+    background-color: #f4a4a7;
+    color: #fff;
+}
+
+.btn-danger:hover{
+    background-color: #d99090;
+}
+
+.btn-primary{
+    padding: 0.5rem;
+    min-width: 40px;
+}

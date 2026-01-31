@@ -1,0 +1,44 @@
+form {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.form-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 0.4rem;
+}
+
+.form-group label{
+   width: 120px;
+   color: #4a3f35;
+   font-size: 1.1rem;
+   text-align: right;
+}
+
+.form-control{
+    width: 20%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button{
+    margin-top: 1.3rem;
+}
+
+.mt-3{
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+
