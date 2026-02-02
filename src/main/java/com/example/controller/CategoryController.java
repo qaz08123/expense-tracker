@@ -37,13 +37,6 @@ public class CategoryController {
     @Autowired
     private EntryRepository entryRepository;
     
-    /*@GetMapping
-    public String list(@AuthenticationPrincipal UserDetails userDetails,  Model model) {
-        String username = userDetails.getUsername();
-        model.addAttribute("categories", categoryService.getCustomCategoriesForUser(username));
-        return "categories/list";
-    }*/
-    
     @GetMapping("/create")
     public String showCreateForm(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         String username = userDetails.getUsername();
