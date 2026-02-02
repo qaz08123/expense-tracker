@@ -29,7 +29,7 @@ public class Category {
     @Column(nullable = false, length = 50)
     @NotBlank(message = "Name is required")
     @Size(max = 50, message = "Name must be 50 characters or less")
-    private String name; //food, transport...
+    private String name;
     
     @Column(nullable = false)
     private boolean isSystem;
