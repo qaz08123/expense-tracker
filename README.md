@@ -23,13 +23,13 @@
 </ul>
 
 <h1>📷Screenshots</h1>
-<img src="screenshots/welcomepage.png">
-<img src="AccountingBook/screenshots/loginpage.png">
-<img src="AccountingBook/screenshots/registerpage.png">
-<img src="AccountingBook/screenshots/overview.png">
-<img src="AccountingBook/screenshots/entrylist.png">
-<img src="AccountingBook/screenshots/createentry.png">
-<img src="AccountingBook/screenshots/customcategory.png">
+<img src="screenshots/welcomepage.png" width=48%>
+<img src="screenshots/loginpage.png" width=48%>
+<img src="screenshots/registerpage.png" width=48%>
+<img src="screenshots/overview.png" width=48%>
+<img src="screenshots/entrylist.png" width=48%>
+<img src="screenshots/createentry.png" width=48%>
+<img src="screenshots/customcategory.png" width=48%>
 
 
 
